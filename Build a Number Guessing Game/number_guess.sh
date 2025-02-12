@@ -29,24 +29,24 @@ if [[ $GUESS == 1 ]]
     echo "You guessed it in $GUESS tries. The secret number was $RANDOM_NUM. Nice job!"
 fi  
 while read NUM
-  do
+    do
     if [[ ! $NUM =~ ^[0-9]+$ ]]
-      then
+    then
       echo "That is not an integer, guess again:"
-      else
-      if [[ $NUM -eq $RANDOM_NUM ]]
-        then
-        break;
-        else
-          if [[  $NUM -gt $RANDOM_NUM ]]
-          then
-            echo -n "It's lower than that, guess again:"
-          elif [[  $NUM -lt $RANDOM_NUM ]]
-          then
-          echo -n "It's higher than that, guess again:"
-        fi
+    else
+    if [[ $NUM -eq $RANDOM_NUM ]]
+    then
+      break;
+    else
+      if [[  $NUM -gt $RANDOM_NUM ]]
+      then
+        echo -n "It's lower than that, guess again:"
+      elif [[  $NUM -lt $RANDOM_NUM ]]
+      then
+        echo -n "It's higher than that, guess again:"
       fi
     fi
+  fi
     GUESS=$(( $GUESS + 1 ))
 done
 
